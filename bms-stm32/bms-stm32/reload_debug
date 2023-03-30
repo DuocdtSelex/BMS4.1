@@ -1,0 +1,4 @@
+mon reset halt
+file main.elf
+load
+mon reset halt
