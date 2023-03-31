@@ -14,6 +14,8 @@
 #include "app_co_od.h"
 #define BMS_NODE_ID                                     1
 
+extern char SERIAL_NUMBER_MEM_ADDR[32];
+
 #define CAN_NODE_ID_ASSIGN_COBID						0x70
 #define BMS_SERIAL_NUMBER_OBJECT_INDEX					0x200300
 #define BMS_MAINSWITCH_INDEX							0x200301

@@ -17,6 +17,9 @@
 #include "delay.h"
 #include "app_co_init.h"
 
+char SERIAL_NUMBER_MEM_ADDR[32] = "103000N1EB101";
+
+
 #define BMS_SDO_ADDRESS                         (0x600+BMS_NODE_ID)
 #define CAN_MASTER_SDO_ADDRESS                  (0x600 + CAN_MASTER_DEFAULT_NODE_ID)
 #define BMS_SN_LENGHT	13
@@ -112,7 +115,7 @@ bool new_load_BMS_SN = false;
 uint8_t new_bms_sn_request = 0;
 char bms_sn_buff[8];
 
-char SERIAL_NUMBER_MEM_ADDR[32] = { 0 };
+
 
 static void can_receive_handle(CAN_Hw *p_hw) {
 

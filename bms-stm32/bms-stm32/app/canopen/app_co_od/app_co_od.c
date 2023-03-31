@@ -232,9 +232,9 @@ static CO_Object smc_od_list[]=
 		/*** Manufacturer-specific profile object ***/
 
 		/* USER CODE 2 BEGIN */
-//		{.index = NEW_FIRMWARE_REQUEST_INDEX, .sub_number = 8, .subs = new_firmware},
-//		{.index = BMS_OBJECT_INDEX, .sub_number = 3, .subs = bms_object},
-//		{.index = MATING_INDEX, .sub_number = 2, .subs = mating_object}
+		{.index = NEW_FIRMWARE_REQUEST_INDEX, .sub_number = 8, .subs = new_firmware},
+		{.index = BMS_OBJECT_INDEX, .sub_number = 3, .subs = bms_object},
+		{.index = MATING_INDEX, .sub_number = 2, .subs = mating_object}
 		/* USER CODE 2 END */
 };
 

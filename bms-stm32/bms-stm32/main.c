@@ -356,20 +356,18 @@ void HAL_STATE_MACHINE_UPDATE_TICK(void){
 	                timeout_counter =0;
 	                bms_update_and_write_data_error(&selex_bms, AUTHENICATING_ERROR);
 	        }
-	        if(co_sdo_get_state()==SDO_ST_SUCCESS)
-	        {
-	        	if(bms_sdo.bms_node_id == 4)
-	        	{
-	        	    bms_set_state(&selex_bms, BMS_ST_DISCHARGING);
-	        	    selex_bms.switch_state = 3;
-	        	    timeout_counter =0;
-	        	}
-	        	else
-	        	{
-	                bms_set_state(&selex_bms, BMS_ST_STANDBY);
-	                timeout_counter =0;
-	        	}
-	        }
+			if (CO_SDO_get_status(&selex_bms.co_app.sdo_server)
+					== CO_SDO_RT_success) {
+				CO_SDO_reset_status(&selex_bms.co_app.sdo_server);
+				if (bms_sdo.bms_node_id == 4) {
+					bms_set_state(&selex_bms, BMS_ST_DISCHARGING);
+					selex_bms.switch_state = 3;
+					timeout_counter = 0;
+				} else {
+					bms_set_state(&selex_bms, BMS_ST_STANDBY);
+					timeout_counter = 0;
+				}
+			}
 
 	        break;
 	case BMS_ST_SOFTSTART:
